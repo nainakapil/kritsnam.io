@@ -52,11 +52,19 @@ window.onload = function () {
     minWidth: 5,  // px
     maxWidth: 5  // px
     }).addTo(mymap);
-    
+
+    //for loop for showing markers at coordinates mentioned in dataSet
     for (data in dataSet){
-        console.log(dataSet[data]);
+        
        var dataMarker = L.marker(dataSet[data].coord,{icon:lightIcon}).addTo(mymap);
-    dataMarker.bindPopup(dataSet[data].waterLevel.toString()+" "+dataSet[data].waterFlow.toString()).openPopup();
+       dataMarker.bindPopup(dataSet[data].waterLevel.toString()+" "+dataSet[data].waterFlow.toString());
+       dataMarker.on('mouseover', function (e) {
+        this.openPopup();
+       });
+       dataMarker.on('mouseout', function (e) {
+        this.closePopup();
+       });
+    //    dataMarker.bindPopup(dataSet[data].waterLevel.toString()+" "+dataSet[data].waterFlow.toString()).openPopup();
     // dataMarker.bindPopup(dataSet[data].waterFlow.toString()).openPopup();
     }
 
