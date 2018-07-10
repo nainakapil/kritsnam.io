@@ -1,6 +1,6 @@
 window.onload = function () {
 
-    var mymap = L.map('map').setView([20.5937, 78.9629], 5);
+    var mymap = L.map('map').setView([24.6005, 80.8322], 6);
     L.tileLayer('https://api.mapbox.com/styles/v1/nainakapil/cjj2qpm2e2p672sobazzcf0dz/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibmFpbmFrYXBpbCIsImEiOiJjamoxN3FvZHgwbDB4M2tud3RlN2o3dGhiIn0.HdZy3o_hp7PerOE8Op1dDw', {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
         maxZoom: 15,
@@ -24,9 +24,9 @@ window.onload = function () {
         iconUrl: 'assets/img/marker.png',
 
 
-        iconSize: [120, 60], 
+        iconSize: [40, 40], 
 
-        iconAnchor: [60, 30], 
+        iconAnchor: [20, 20], 
     });
     var marker;
     // var marker = L.marker([30.5532, 79.452]).addTo(mymap);
@@ -53,19 +53,23 @@ window.onload = function () {
     maxWidth: 5  // px
     }).addTo(mymap);
 
-    //for loop for showing markers at coordinates mentioned in dataSet
+    //for loop for showing markers(blue led) and popups at coordinates mentioned in dataSet
     for (data in dataSet){
         
        var dataMarker = L.marker(dataSet[data].coord,{icon:lightIcon}).addTo(mymap);
-       dataMarker.bindPopup(dataSet[data].waterLevel.toString()+" "+dataSet[data].waterFlow.toString());
+       //we can apply html to popup content using variable popupContent
+       var popupContent = " Water Level: "+dataSet[data].waterLevel.toString()+" "+"</br> Water Flow: "+dataSet[data].waterFlow.toString();
+       //defined class for popup is customPopup
+       dataMarker.bindPopup(popupContent, {className: "customPopup", minWidth:100});
+       
+       //popup appears on mouse hover
        dataMarker.on('mouseover', function (e) {
         this.openPopup();
        });
        dataMarker.on('mouseout', function (e) {
         this.closePopup();
        });
-    //    dataMarker.bindPopup(dataSet[data].waterLevel.toString()+" "+dataSet[data].waterFlow.toString()).openPopup();
-    // dataMarker.bindPopup(dataSet[data].waterFlow.toString()).openPopup();
+    
     }
 
 
