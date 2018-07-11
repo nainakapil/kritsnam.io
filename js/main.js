@@ -58,20 +58,34 @@ window.onload = function () {
             icon: lightIcon
         }).addTo(mymap);
         // we can apply html to popup content using variable popupContent
-        var popupContent = " Water Level: " + dataSet[data].waterLevel.toString() + " " + "</br> Water Flow: " + dataSet[data].waterFlow.toString();
+        var waterLevel =dataSet[data].waterLevel.toString();
+        var waterFlow =dataSet[data].waterFlow.toString();
+        var popupContent = `
+        <div class="row">
+            <div class="col-6">
+                <img src="assets/img/sea.png"/> 
+                <div>Water Level: ${waterLevel}</div>
+            </div>
+            <div class="col-6">
+                <img src="assets/img/wind.png"/> 
+                <div>Water Flow: ${waterFlow}</div>
+            </div>
+        </div>`;
         // defined class for popup is customPopup
         dataMarker.bindPopup(popupContent, {
             className: "customPopup",
-            minWidth: 100
+            minWidth: 300,
+            maxWidth: 1000
+
         });
 
         // popup appears on mouse hover
-        dataMarker.on('mouseover', function (e) {
-            this.openPopup();
-        });
-        dataMarker.on('mouseout', function (e) {
-            this.closePopup();
-        });
+        // dataMarker.on('mouseover', function (e) {
+        //     this.openPopup();
+        // });
+        // dataMarker.on('mouseout', function (e) {
+        //     this.closePopup();
+        // });
 
     }
 
