@@ -1,0 +1,48 @@
+[{
+    "coord": [30.1459, 78.5993],
+    "waterLevel": 50,
+    "waterFlow": 12,
+    "waterQuality": 2
+},
+{
+    "coord": [30.0869, 78.2676],
+    "waterLevel": 60,
+    "waterFlow": 18,
+    "waterQuality": 1
+},
+{
+    "coord": [29.9457, 78.1642],
+    "waterLevel": 40,
+    "waterFlow": 8,
+    "waterQuality": 0
+},
+{
+    "coord": [26.4499, 80.3319],
+    "waterLevel": 30,
+    "waterFlow": 22,
+    "waterQuality": 1
+},
+{
+    "coord": [25.4358, 81.8463],
+    "waterLevel": 10,
+    "waterFlow": 20,
+    "waterQuality": 3
+},
+{
+    "coord": [25.3176, 82.9739],
+    "waterLevel": 18,
+    "waterFlow": 70,
+    "waterQuality": 2
+},
+{
+    "coord": [25.5941, 85.1376],
+    "waterLevel": 8,
+    "waterFlow": 7,
+    "waterQuality": 1
+},
+{
+    "coord": [22.5726, 88.3639],
+    "waterLevel": 18,
+    "waterFlow": 70,
+    "waterQuality": 0
+}]
